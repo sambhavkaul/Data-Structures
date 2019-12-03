@@ -30,7 +30,22 @@ void insertHead(int x) {
     head = temp;
 }
 
+void Display() {
+    Node* temp = head;
+
+    while(temp != NULL) {
+        cout << temp -> data << endl;
+        temp = temp -> right;
+    }
+}
+
 int main() {
 
+    insertHead(4);
+    insertHead(8);
+    insertHead(9);
+    insertHead(3);
+    Display();
+    
     return 0;
 }

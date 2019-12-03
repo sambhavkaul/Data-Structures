@@ -1,29 +1,35 @@
 #include <iostream>
 using namespace std;
 
-#define MAX 101
-int A[MAX], top = -1;
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* top;
 
 void Push(int x) {
-    if(top == MAX - 1) {
-        cout << "Overflow";
-        return;
-    }
-    top++;
-    A[top] = x;
+    Node* temp = new Node();
+    temp -> data = x;
+    temp -> next = top;
+    top = temp;
 }
 
 void Pop() {
-    if(top == -1) {
+    Node* temp = top;
+    if(top == NULL) {
         cout << "Underflow";
         return;
     }
-    top--;
+    top = top -> next;
+    delete temp;
 }
 
 void Display() {
-    for(int i = 0; i <= top; i++) {
-        cout << A[i] << endl;
+    Node* temp = top;
+    while(temp != NULL) {
+        cout << temp -> data << endl;
+        temp = temp -> next;
     }
 }
 

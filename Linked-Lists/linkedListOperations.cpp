@@ -116,8 +116,12 @@ void reverselist()
     prev=NULL;
     while(current!= NULL)
     {
-        temp=temp->next;
+        next=current->next;
+        current->next=prev;
+        prev=current;
+        current=next
     }
+    head=prev;
 }
 
 int main() {

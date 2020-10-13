@@ -109,6 +109,21 @@ void printList() {
     }
 }
 
+void reverselist()
+{
+    struct Node *next, *prev, *current;
+    current = head;
+    prev=NULL;
+    while(current!= NULL)
+    {
+        next=current->next;
+        current->next=prev;
+        prev=current;
+        current=next
+    }
+    head=prev;
+}
+
 int main() {
 
     head = NULL;

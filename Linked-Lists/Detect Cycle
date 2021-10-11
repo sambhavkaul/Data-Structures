@@ -1,0 +1,31 @@
+bool dfs(int V, vector<int> adj[], vector<int> &visited, vector<int> &curVisited, int i) {
+    visited[i] = true;
+    curVisited[i] = true;
+
+    for(auto u : adj[i]) {
+        if(visited[u] == false) {
+            if(dfs(V, adj, visited, curVisited, u)) {
+                return true;
+            }
+        }
+        else if(visited[u] == true && curVisited[u] == true) {
+            return true;
+        }
+    }
+    curVisited[i] = false;
+    return false;
+}
+bool isCyclic(int V, vector<int> adj[]) 
+{
+    // code hereve
+    vector<int> visited(V, false), curVisited(V, false);
+
+    for(int i = 0; i < V; i++) {
+        if(visited[i] == false) {
+            if(dfs(V, adj, visited, curVisited, i)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}

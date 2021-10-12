@@ -21,7 +21,7 @@ int main(){
     l.pop_back();
     l.pop_front();
 
-    //Remove all the elements from the vector.
+    //Remove all the elements from the list.
     l.clear();
 
 }

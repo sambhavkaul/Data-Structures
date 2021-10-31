@@ -1,3 +1,4 @@
+//Code to count components
 #include <bits/stdc++.h>
 using namespace std;
  
